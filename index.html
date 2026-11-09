@@ -1,0 +1,1128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ID Idiomas | Inglês, espanhol, italiano, francês e alemão online</title>
+<meta name="description" content="A escola online que te conecta ao seu objetivo! Aulas de inglês, espanhol, italiano, francês e alemão: VIP individual, duplas e mini grupos.">
+<meta name="theme-color" content="#121416">
+<meta property="og:title" content="ID Idiomas — A escola online que te conecta ao seu objetivo">
+<meta property="og:description" content="Grupo de conversação gratuito, aulas sob medida e atendimento direto pelo WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="pt_BR">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet">
+<script>try{if('scrollRestoration' in history)history.scrollRestoration='manual'}catch(e){}</script>
+<style>
+/* Layout: mobile = uma coluna; desktop = hero fixo à esquerda + links à direita */
+:root{
+  --bg:#121416;
+  --surface:#1d2124;
+  --surface-2:#262b2f;
+  --line:rgba(255,255,255,.08);
+  --line-2:rgba(255,255,255,.15);
+  --lime:#c6ff00;
+  --lime-glow:rgba(198,255,0,.35);
+  --ink:#16191b;
+  --text:#f2f4ef;
+  --text-2:#c9cec6;
+  --muted:#9ca39b;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --radius:22px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --spring:cubic-bezier(.34,1.56,.64,1);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{margin:0;min-height:100svh;background:var(--bg);color:var(--text);font-family:var(--body);
+  -webkit-font-smoothing:antialiased;overflow-x:clip;-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+img{display:block;max-width:100%}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Background ---------- */
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55}
+.blob.b1{width:560px;height:560px;left:50%;top:-240px;margin-left:-280px;
+  background:radial-gradient(circle,rgba(198,255,0,.55),rgba(198,255,0,0) 65%);animation:drift1 16s ease-in-out infinite alternate}
+.blob.b2{width:460px;height:460px;right:-220px;bottom:-160px;
+  background:radial-gradient(circle,rgba(198,255,0,.28),rgba(198,255,0,0) 65%);animation:drift2 20s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate3d(60px,80px,0) scale(1.15)}}
+@keyframes drift2{to{transform:translate3d(-120px,-90px,0) scale(.9)}}
+.glow{position:absolute;left:0;top:0;width:640px;height:640px;margin:-320px 0 0 -320px;border-radius:50%;opacity:0;
+  background:radial-gradient(circle,rgba(198,255,0,.10),rgba(198,255,0,0) 60%);transition:opacity .6s}
+.glow.on{opacity:1}
+.grain{position:absolute;inset:-50%;opacity:.09;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 1.2s steps(4) infinite}
+@keyframes grain{25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}}
+
+/* ---------- Shell ---------- */
+.wrap{position:relative;z-index:1;width:100%;max-width:468px;margin:0 auto;
+  padding-block:calc(24px + env(safe-area-inset-top, 0px)) 0;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.chip-status{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;color:var(--muted);
+  padding:7px 12px 7px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.chip-status i{width:7px;height:7px;border-radius:50%;background:var(--lime);animation:ping 2s var(--ease) infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(198,255,0,.6)}80%,100%{box-shadow:0 0 0 9px rgba(198,255,0,0)}}
+.icon-btn{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line);
+  background:rgba(255,255,255,.03);cursor:pointer;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:transform .35s var(--spring),background .25s,border-color .25s}
+.icon-btn:hover{background:rgba(255,255,255,.08);border-color:var(--line-2);transform:rotate(-8deg)}
+.icon-btn:active{transform:scale(.88)}
+.icon-btn svg{width:18px;height:18px}
+
+.layout{display:flex;flex-direction:column}
+.side{display:contents}
+.hero{order:1}
+.col{order:2}
+.perks{order:3}
+
+/* ---------- Hero ---------- */
+.hero{text-align:center;padding-top:4px}
+.logo-wrap{position:relative;width:176px;height:176px;margin:0 auto 18px;display:grid;place-items:center}
+.ring{position:absolute;inset:0;width:100%;height:100%}
+.ring text{font-family:var(--display);font-size:9.4px;font-weight:700;letter-spacing:2.6px;fill:var(--lime);text-transform:uppercase}
+.logo{position:relative;z-index:2;width:112px;height:112px;padding:0;border:0;border-radius:50%;background:none;cursor:pointer;
+  box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--lime),0 18px 50px -10px var(--lime-glow);
+  animation:breathe 4s ease-in-out infinite;transition:transform .5s var(--spring)}
+.logo svg{position:absolute;inset:0;display:block;width:100%;height:100%;border-radius:50%;pointer-events:none}
+.logo:hover{transform:scale(1.06) rotate(-6deg)}
+.logo:active{transform:scale(.9)}
+.logo.kick{animation:kick .7s var(--spring),breathe 4s ease-in-out infinite}
+@keyframes kick{30%{scale:.86;rotate:-14deg}65%{scale:1.1;rotate:8deg}}
+@keyframes breathe{50%{box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--lime),0 18px 70px -4px rgba(198,255,0,.5)}}
+.shock{position:absolute;z-index:1;left:50%;top:50%;width:112px;height:112px;margin:-56px 0 0 -56px;border-radius:50%;border:2px solid var(--lime);
+  pointer-events:none;animation:shock .8s var(--ease) forwards}
+@keyframes shock{from{scale:1;opacity:.9}to{scale:2.4;opacity:0}}
+.burst{position:absolute;z-index:3;left:50%;top:50%;pointer-events:none;white-space:nowrap;
+  padding:6px 11px;border-radius:999px;font-family:var(--display);font-weight:700;font-size:12px;
+  background:var(--lime);color:var(--ink);box-shadow:0 10px 24px -8px rgba(0,0,0,.5);
+  transform:translate(-50%,-50%);animation:burst 1.25s var(--ease) forwards}
+.burst.alt{background:var(--text)}
+@keyframes burst{
+  0%{translate:0 0;scale:.2;rotate:0deg;opacity:0}
+  15%{opacity:1}
+  70%{opacity:1}
+  100%{translate:var(--tx) var(--ty);scale:1;rotate:var(--rot);opacity:0}}
+
+h1{font-family:var(--display);font-weight:800;font-size:clamp(32px,9.4vw,42px);line-height:1;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1 .fit-line{display:inline-block;white-space:nowrap}
+h1 .w{display:inline-block;white-space:nowrap}
+h1 .w + .w{margin-left:.26em}
+h1 .lime{color:var(--lime)}
+.ch{display:inline-block;opacity:0;transition:transform .35s var(--spring),color .2s}
+.ready .ch{animation:charIn .9s var(--spring) both;animation-delay:calc(var(--i) * 45ms + 200ms)}
+.ch:hover{transform:translateY(-.14em) rotate(-8deg);color:var(--lime)}
+.lime .ch:hover{color:var(--text)}
+@keyframes charIn{from{translate:0 .7em;rotate:14deg;opacity:0}to{translate:0 0;rotate:0deg;opacity:1}}
+
+.say{margin:14px 0 0;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 10px;font-family:var(--display);font-weight:500;font-size:15px;color:var(--muted)}
+.rot{position:relative;display:inline-block;height:36px;overflow:hidden;border-radius:999px;
+  background:var(--lime);color:var(--ink);font-weight:700;box-shadow:0 8px 24px -8px var(--lime-glow)}
+.rot span{position:absolute;inset:0;display:grid;place-items:center;white-space:nowrap;
+  translate:0 110%;opacity:0;transition:translate .6s var(--ease),opacity .4s}
+.rot span.in{translate:0 0;opacity:1}
+.rot span.out{translate:0 -110%;opacity:0}
+.say .lang{position:relative;display:inline-grid;overflow:hidden;padding-block:.1em;text-align:left;color:var(--text-2)}
+.say .lang span{grid-area:1/1;white-space:nowrap;translate:0 110%;opacity:0;transition:translate .6s var(--ease),opacity .4s}
+.say .lang span.in{translate:0 0;opacity:1}
+.say .lang span.out{translate:0 -110%;opacity:0}
+.bio{margin:16px auto 0;max-width:330px;font-size:15px;line-height:1.55;color:var(--text-2)}
+
+.socials{display:flex;justify-content:center;gap:12px;margin:22px 0 4px}
+.soc{position:relative;width:52px;height:52px;display:grid;place-items:center;border-radius:16px;
+  background:var(--surface);border:1px solid var(--line);
+  transition:transform .4s var(--spring),background .3s,color .3s,border-color .3s,box-shadow .3s}
+.soc svg{width:22px;height:22px;transition:transform .4s var(--spring)}
+.soc:hover{background:var(--lime);color:var(--ink);border-color:var(--lime);box-shadow:0 12px 30px -10px var(--lime-glow);transform:translateY(-4px) rotate(-4deg)}
+.soc:hover svg{transform:scale(1.1) rotate(4deg)}
+.soc:active{transform:scale(.9)}
+.soc .tip{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translate(-50%,6px);opacity:0;pointer-events:none;
+  font-size:11px;font-weight:600;background:var(--text);color:var(--ink);padding:5px 9px;border-radius:8px;white-space:nowrap;
+  transition:opacity .2s,transform .3s var(--spring)}
+.soc:hover .tip{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- Cards ---------- */
+.links{display:grid;gap:12px;margin-top:28px}
+.card{position:relative;display:flex;align-items:center;gap:14px;padding:16px 16px 16px 14px;border-radius:var(--radius);
+  background:var(--surface);border:1px solid var(--line);overflow:hidden;isolation:isolate;
+  transition:transform .45s var(--spring),border-color .3s,background .3s;--mx:50%;--my:50%}
+.card::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .3s;
+  background:radial-gradient(260px circle at var(--mx) var(--my),rgba(198,255,0,.14),transparent 60%)}
+.card:hover{border-color:rgba(198,255,0,.35);transform:translateY(-3px)}
+.card:hover::before{opacity:1}
+.card:active{transform:scale(.98)}
+.card .ico{flex:none;width:50px;height:50px;border-radius:15px;display:grid;place-items:center;background:var(--surface-2);color:var(--lime);
+  transition:transform .45s var(--spring),background .3s,color .3s}
+.card .ico svg{width:24px;height:24px}
+.card:hover .ico{transform:rotate(-8deg) scale(1.06);background:var(--lime);color:var(--ink)}
+.card .txt{flex:1;min-width:0}
+.card .t{display:block;font-weight:600;font-size:16px;line-height:1.25}
+.card .s{display:block;margin-top:3px;font-size:13px;color:var(--muted);line-height:1.4}
+.arrow{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line-2);
+  transition:transform .45s var(--spring),background .3s,border-color .3s,color .3s}
+.arrow svg{width:16px;height:16px}
+.card:hover .arrow{transform:rotate(-45deg);background:var(--lime);border-color:var(--lime);color:var(--ink)}
+
+/* Featured */
+.feat{display:block;padding:20px 20px 18px;background:var(--lime);color:var(--ink);border:0;
+  box-shadow:0 24px 60px -24px rgba(198,255,0,.55);
+  transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
+  transition:transform .5s var(--ease),box-shadow .4s}
+.feat.tilting{transition:transform .12s linear,box-shadow .4s}
+.feat::before{background:radial-gradient(320px circle at var(--mx) var(--my),rgba(255,255,255,.5),transparent 60%)}
+.feat::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);
+  translate:-120% 0;animation:sheen 5.5s var(--ease) 2.2s infinite}
+@keyframes sheen{0%{translate:-120% 0}28%,100%{translate:120% 0}}
+.feat:hover{border-color:transparent;box-shadow:0 34px 70px -24px rgba(198,255,0,.7)}
+.feat:active{transform:perspective(900px) scale(.98)}
+.feat-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;background:var(--ink);color:var(--lime);
+  font-family:var(--display);font-weight:700;font-size:10.5px;letter-spacing:.08em}
+.badge i{width:6px;height:6px;border-radius:50%;background:var(--lime);animation:blink 1.4s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+.feat-kind{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;opacity:.75}
+.feat-kind svg{width:15px;height:15px}
+.feat h2{font-family:var(--display);font-weight:800;font-size:clamp(23px,6.6vw,30px);line-height:1.05;letter-spacing:-.02em;margin:16px 0 8px;text-wrap:balance}
+.feat p{margin:0;font-size:14px;line-height:1.5;opacity:.82;max-width:340px}
+.chat{position:relative;min-height:96px;margin:16px 0;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+.bub{max-width:84%;padding:8px 12px;border-radius:16px;font-size:13px;font-weight:500;line-height:1.3;
+  opacity:0;transform:translateY(10px) scale(.9);transform-origin:bottom left;transition:opacity .35s,transform .55s var(--spring)}
+.bub.l{align-self:flex-start;background:rgba(22,25,27,.1);border-bottom-left-radius:5px}
+.bub.r{align-self:flex-end;background:var(--ink);color:var(--text);border-bottom-right-radius:5px;transform-origin:bottom right}
+.bub.show{opacity:1;transform:none}
+.typing{display:inline-flex;gap:4px;padding:11px 13px}
+.typing b{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.5;animation:tdot 1s infinite}
+.typing b:nth-child(2){animation-delay:.15s}.typing b:nth-child(3){animation-delay:.3s}
+@keyframes tdot{30%{transform:translateY(-4px);opacity:1}}
+.feat-cta{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 6px 6px 18px;border-radius:999px;background:var(--ink);color:var(--text);font-weight:600;font-size:14.5px}
+.feat-cta .go{width:40px;height:40px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center;transition:transform .45s var(--spring)}
+.feat-cta .go svg{width:17px;height:17px}
+.feat:hover .go{transform:rotate(-45deg) scale(1.08)}
+
+/* Label + modalidades */
+.label{display:flex;align-items:center;gap:10px;margin:34px 2px 12px;font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.label::after{content:"";flex:1;height:1px;background:var(--line)}
+.mods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.mod{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:22px;min-height:120px;padding:16px 12px 12px;border-radius:18px;
+  background:var(--surface);border:1px solid var(--line);overflow:hidden;
+  transition:transform .45s var(--spring),border-color .3s,background .3s}
+.mod .people{display:flex;gap:4px;height:18px;align-items:flex-end}
+.mod .people i{width:14px;height:14px;border-radius:50%;background:var(--surface-2);border:2px solid var(--lime);transition:transform .45s var(--spring),background .3s}
+.mod .people i:nth-child(2){transition-delay:.05s}.mod .people i:nth-child(3){transition-delay:.1s}.mod .people i:nth-child(4){transition-delay:.15s}
+.mod b{display:block;font-size:14px;font-weight:600;line-height:1.2}
+.mod small{display:flex;align-items:center;gap:4px;margin-top:4px;font-size:12px;color:var(--muted);white-space:nowrap;transition:color .3s}
+.mod small svg{width:12px;height:12px;transition:transform .3s var(--ease)}
+.mod:hover{transform:translateY(-4px);border-color:rgba(198,255,0,.4);background:var(--surface-2)}
+.mod:hover .people i{transform:translateY(-5px);background:var(--lime)}
+.mod:hover small{color:var(--lime)}
+.mod:hover small svg{transform:translateX(4px)}
+.mod:active{transform:scale(.96)}
+
+/* Perks */
+.perks{display:grid;gap:10px;margin-top:40px}
+.perk{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:18px;border:1px dashed var(--line-2);transition:border-color .3s,background .3s}
+.perk:hover{border-color:rgba(198,255,0,.4);background:rgba(198,255,0,.03)}
+.perk .pi{flex:none;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:rgba(198,255,0,.12);color:var(--lime);transition:transform .45s var(--spring)}
+.perk:hover .pi{transform:rotate(-10deg) scale(1.1)}
+.perk .pi svg{width:18px;height:18px}
+.perk div{min-width:0}
+.perk b{display:block;font-size:14px;font-weight:600}
+.perk span{display:block;font-size:12.5px;color:var(--muted);line-height:1.45;margin-top:2px}
+
+/* Particle stage */
+.stage{position:relative;z-index:1;width:100%;height:clamp(300px,44vw,560px);margin-top:0;overflow:hidden;touch-action:pan-y;
+  border-block:1px solid var(--line);background:radial-gradient(ellipse at 50% 60%,rgba(198,255,0,.07),transparent 65%)}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.stage .cap{position:relative;z-index:1;max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;gap:12px;pointer-events:none;
+  padding-block:16px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));
+  font-family:var(--display);font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.stage .cap b{color:var(--lime);font-weight:700}
+.stage .cap .hint{display:inline-flex;align-items:center;gap:8px}
+.stage .cap .hint i{width:8px;height:8px;border-radius:50%;background:var(--lime);animation:ping 2s var(--ease) infinite}
+
+/* Marquee */
+.band{position:relative;z-index:1;width:100%;overflow:hidden;padding-block:40px;margin-top:80px}
+.marquee{position:relative;z-index:1;margin:0 -24px;padding:15px 0;background:var(--lime);color:var(--ink);rotate:-2.5deg;overflow:hidden;
+  box-shadow:0 20px 50px -25px rgba(198,255,0,.6)}
+.marquee .track{display:flex;width:max-content;will-change:transform}
+.marquee span{display:inline-flex;align-items:center;gap:20px;padding-right:20px;font-family:var(--display);font-weight:800;font-size:clamp(15px,2vw,22px);white-space:nowrap;text-transform:uppercase}
+.marquee span svg{width:.9em;height:.9em}
+
+/* ---------- Manifesto (palavras acendem com o scroll) ---------- */
+.stmt{position:relative;z-index:1;max-width:1180px;margin:96px auto 0;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.kick{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.kick::before{content:"";width:22px;height:1.5px;background:var(--lime)}
+.stmt-text{margin:22px 0 0;max-width:1060px;font-family:var(--display);font-weight:600;font-size:clamp(27px,4.3vw,62px);line-height:1.14;letter-spacing:-.025em;text-wrap:balance}
+.stmt-text .sw{transition:opacity .25s linear,color .4s}
+.js-scrub .stmt-text .sw{opacity:.13}
+.stmt-text .sw.hl{color:var(--lime)}
+
+/* ---------- Nosso foco (horizontal) ---------- */
+.focus{position:relative;z-index:1;margin-top:96px}
+.focus-pin{position:relative}
+.focus-head{max-width:1180px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.focus-head h2{margin:14px 0 0;font-family:var(--display);font-weight:800;font-size:clamp(28px,4.2vw,56px);line-height:1.02;letter-spacing:-.03em;max-width:720px;text-wrap:balance}
+.focus-head h2 span{color:var(--lime)}
+.focus-head p{margin:12px 0 0;max-width:420px;font-size:14.5px;line-height:1.55;color:var(--muted)}
+.fmeta{display:flex;align-items:center;gap:14px;font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-variant-numeric:tabular-nums}
+.fprog{width:120px;height:2px;background:var(--line-2);overflow:hidden;border-radius:2px}
+.fprog i{display:block;height:100%;background:var(--lime);transform-origin:left;transform:scaleX(0)}
+.focus-track{display:flex;gap:14px;margin-top:28px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  padding-block:6px 10px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));scroll-padding-left:16px}
+.focus-track::-webkit-scrollbar{display:none}
+.fcard{position:relative;flex:none;width:min(80vw,380px);min-height:350px;padding:24px;border-radius:28px;scroll-snap-align:start;
+  display:flex;flex-direction:column;justify-content:space-between;gap:28px;background:var(--surface);border:1px solid var(--line);
+  overflow:hidden;isolation:isolate;transition:color .45s var(--ease),border-color .45s}
+.fcard::before{content:"";position:absolute;inset:-1px;z-index:-1;background:var(--lime);transform:translateY(101%);transition:transform .75s var(--ease)}
+.fcard .fi{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:rgba(198,255,0,.12);color:var(--lime);transition:background .45s,color .45s,rotate .6s var(--spring)}
+.fcard .fi svg{width:28px;height:28px}
+.fcard h3{margin:0;font-family:var(--display);font-weight:700;font-size:clamp(23px,2.4vw,30px);line-height:1.08;letter-spacing:-.02em}
+.fcard p{margin:12px 0 0;font-size:14.5px;line-height:1.55;color:var(--muted);transition:color .45s}
+.fcard .more{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-weight:600;font-size:14px}
+.fcard .more i{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line-2);transition:background .45s,border-color .45s,color .45s,rotate .5s var(--spring)}
+.fcard .more svg{width:15px;height:15px}
+.fcard:hover{color:var(--ink);border-color:var(--lime)}
+.fcard:hover::before{transform:none}
+.fcard:hover .fi{background:var(--ink);color:var(--lime);rotate:-10deg}
+.fcard:hover p{color:rgba(22,25,27,.75)}
+.fcard:hover .more i{background:var(--ink);border-color:var(--ink);color:var(--lime);rotate:-45deg}
+.fcard:active{scale:.98}
+.swipe{display:flex;align-items:center;gap:8px;margin:14px 0 0;padding-left:max(16px, env(safe-area-inset-left, 0px));font-size:12px;color:var(--muted)}
+.swipe svg{width:16px;height:16px;animation:nudge 1.6s var(--ease) infinite}
+@keyframes nudge{50%{translate:6px 0}}
+
+@media (min-width:1000px){
+  .stmt{margin-top:150px}
+  .focus{margin-top:150px}
+  .focus.pinned .focus-pin{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+  .focus.pinned .focus-track{overflow:visible;width:max-content;scroll-snap-type:none;will-change:transform;
+    padding-left:max(16px, calc((100vw - 1180px) / 2 + 16px));padding-right:max(16px, calc((100vw - 1180px) / 2 + 16px))}
+  .fcard{width:420px;min-height:440px;padding:30px}
+    .swipe{display:none}
+}
+@media (min-width:1000px) and (max-height:780px){ .fcard{min-height:380px} .focus-head h2{font-size:40px} }
+
+/* ---------- Rodapé / CTA final ---------- */
+.end{position:relative;z-index:1;margin-top:0;background:var(--lime);color:var(--ink);overflow:hidden}
+.end-in{max-width:1180px;margin:0 auto;will-change:transform;
+  padding-block:72px calc(28px + env(safe-area-inset-bottom, 0px));
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.end .kick{color:rgba(22,25,27,.7)}
+.end .kick::before{background:var(--ink)}
+.end-title{margin:18px 0 0;font-family:var(--display);font-weight:800;font-size:clamp(54px,14vw,200px);line-height:.94;letter-spacing:-.05em}
+.end-title .ln{display:block;overflow:hidden;padding-bottom:.04em}
+.end-title .ln > span{display:inline-block;translate:0 108%;transition:translate 1.2s var(--ease)}
+.end-title .ln:nth-child(2) > span{transition-delay:.09s}
+.end.in .end-title .ln > span{translate:0 0}
+.end-row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-top:34px}
+.end-row p{margin:0;max-width:420px;font-size:15px;line-height:1.55;color:rgba(22,25,27,.78)}
+.end-btn{position:relative;display:inline-flex;align-items:center;gap:14px;padding:8px 8px 8px 24px;border-radius:999px;background:var(--ink);color:var(--text);
+  font-weight:600;font-size:16px;transition:transform .45s var(--spring),box-shadow .4s;box-shadow:0 20px 40px -18px rgba(0,0,0,.55);overflow:hidden}
+.end-btn .go{width:48px;height:48px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center;transition:rotate .5s var(--spring)}
+.end-btn .go svg{width:20px;height:20px}
+.end-btn:hover .go{rotate:-45deg}
+.end-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;margin-top:64px;padding-top:20px;border-top:1px solid rgba(22,25,27,.2);font-size:12.5px;color:rgba(22,25,27,.72)}
+.end-meta a{color:var(--ink);font-weight:600;border-bottom:1px solid rgba(22,25,27,.35)}
+.end-meta a:hover{border-color:var(--ink)}
+@media (min-width:1000px){ .end-in{padding-block-start:110px} .end-meta{margin-top:96px} }
+
+/* Ripple */
+.ripple{position:absolute;z-index:0;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;pointer-events:none;
+  background:currentColor;opacity:.16;animation:ripple .7s var(--ease) forwards}
+@keyframes ripple{to{scale:28;opacity:0}}
+.soc{overflow:hidden}
+.soc > svg,.card > *,.mod > *{position:relative;z-index:1}
+
+/* Toast */
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom, 0px));z-index:10;transform:translate(-50%,140%);
+  padding:11px 16px;border-radius:999px;background:var(--text);color:var(--ink);font-size:13px;font-weight:600;
+  display:flex;align-items:center;gap:8px;box-shadow:0 14px 40px -10px rgba(0,0,0,.6);opacity:0;visibility:hidden;
+  transition:transform .5s var(--spring),opacity .3s,visibility .3s}
+.toast svg{width:16px;height:16px}
+.toast.on{transform:translate(-50%,0);opacity:1;visibility:visible}
+
+/* Entrance + scroll reveal (only individual transform props, so hovers keep working) */
+.rise{opacity:0;translate:0 22px;filter:blur(6px)}
+.ready .rise{animation:rise .9s var(--ease) forwards;animation-delay:calc(var(--i,0) * 70ms + 80ms)}
+@keyframes rise{to{opacity:1;translate:0 0;filter:none}}
+.ready .logo-wrap.rise{animation-name:pop;animation-timing-function:var(--spring)}
+@keyframes pop{from{opacity:0;scale:.5;rotate:-40deg;filter:blur(6px)}to{opacity:1;scale:1;rotate:0deg;filter:none}}
+.ready .rise.later{animation:none;opacity:.35;translate:0 46px;filter:none;transition:opacity .8s var(--ease),translate 1s var(--spring)}
+.ready .rise.later.in{opacity:1;translate:0 0}
+.ready .marquee.rise.later{translate:0 46px}
+.ready .marquee.rise.later.in{translate:0 0}
+
+/* Loader com a logo animada */
+html.lock{overflow:hidden}
+.loader{position:fixed;inset:0;z-index:60;cursor:progress}
+.ld-lime,.ld-panel{position:absolute;inset:0;clip-path:inset(0 0 0 0);transition:clip-path .9s cubic-bezier(.76,0,.24,1)}
+.ld-lime{background:var(--lime);transition-delay:.13s}
+.ld-panel{background:var(--bg);display:grid;place-items:center}
+.loader.out .ld-panel,.loader.out .ld-lime{clip-path:inset(0 0 100% 0)}
+.ld-center{display:flex;flex-direction:column;align-items:center;gap:28px;transition:translate .9s cubic-bezier(.76,0,.24,1),opacity .5s}
+.loader.out .ld-center{translate:0 -60px;opacity:0}
+.ld-mark{position:relative;width:clamp(150px,38vw,210px);aspect-ratio:1}
+.ld-ring{position:absolute;inset:0;width:100%;height:100%;rotate:-90deg;overflow:visible}
+.ld-ring circle{fill:none;stroke-width:1.6}
+.ld-ring .trk{stroke:rgba(255,255,255,.1)}
+.ld-ring .bar{stroke:var(--lime);stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .35s var(--ease)}
+.ld-logo{position:absolute;left:21%;top:21%;width:58%;height:58%;overflow:visible}
+.ld-d{fill:#fff;fill-opacity:0;stroke:#fff;stroke-width:16;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;
+  animation:ldDraw 1.05s cubic-bezier(.65,0,.35,1) .15s forwards,ldFill .5s ease 1s forwards}
+@keyframes ldDraw{to{stroke-dashoffset:0}}
+@keyframes ldFill{to{fill-opacity:1;stroke-opacity:0}}
+.ld-stem{fill:#aed300;transform-box:fill-box;transform-origin:50% 100%;scale:1 0;animation:ldStem .75s cubic-bezier(.34,1.4,.64,1) .55s forwards}
+@keyframes ldStem{to{scale:1 1}}
+.ld-dot{fill:#aed300;transform-box:fill-box;transform-origin:50% 100%;translate:0 -2400px;opacity:0;animation:ldDot 1s linear .95s forwards}
+@keyframes ldDot{
+  0%{translate:0 -2400px;scale:1 1;opacity:1;animation-timing-function:cubic-bezier(.55,0,1,.45)}
+  45%{translate:0 0;scale:1.18 .8;animation-timing-function:cubic-bezier(0,.55,.45,1)}
+  68%{translate:0 -110px;scale:.94 1.08;animation-timing-function:cubic-bezier(.55,0,1,.45)}
+  84%{translate:0 0;scale:1.06 .94}
+  100%{translate:0 0;scale:1 1;opacity:1}}
+.loader.done .ld-logo{animation:ldPop .7s var(--spring)}
+@keyframes ldPop{35%{scale:1.1;rotate:-7deg}}
+.loader.done .ld-mark::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--lime);animation:shock .8s var(--ease) forwards}
+.ld-name{display:flex;gap:.02em;font-family:var(--display);font-weight:800;font-size:clamp(17px,4.4vw,22px);letter-spacing:.22em;line-height:1.15}
+.ld-name i{display:inline-block;overflow:hidden;font-style:normal}
+.ld-name b{display:inline-block;translate:0 110%;animation:ldUp .8s var(--ease) forwards;animation-delay:calc(1.15s + var(--i) * 45ms)}
+.ld-name .sp{width:.5em}
+.ld-name .lm b{color:var(--lime)}
+@keyframes ldUp{to{translate:0 0}}
+.ld-hello{position:relative;width:min(84vw,360px);height:1.25em;overflow:hidden;font-family:var(--display);font-weight:800;font-size:clamp(30px,8vw,46px);letter-spacing:-.03em;line-height:1.25;text-align:center;margin:-4px 0 -12px}
+.ld-hello span{position:absolute;left:0;right:0;top:0;translate:0 105%;transition:translate .5s cubic-bezier(.7,0,.2,1)}
+.ld-hello span.on{translate:0 0}
+.ld-hello span.off{translate:0 -105%}
+.ld-lang{display:block;height:1.4em;margin-top:-8px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--lime);text-align:center;transition:opacity .25s}
+.ld-meta{position:absolute;left:0;right:0;bottom:calc(24px + env(safe-area-inset-bottom, 0px));display:flex;justify-content:space-between;align-items:flex-end;gap:16px;
+  padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px));
+  font-size:12px;color:var(--muted)}
+.ld-meta .pct{font-family:var(--display);font-weight:800;font-size:clamp(28px,6vw,44px);line-height:1;color:var(--text);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.ld-meta .pct small{font-size:.45em;color:var(--lime);margin-left:2px}
+
+/* Scroll progress */
+.progress{position:fixed;left:0;right:0;top:0;z-index:40;height:3px;background:var(--lime);transform-origin:left;transform:scaleX(0);box-shadow:0 0 12px var(--lime-glow)}
+
+/* Confetti */
+.conf{position:fixed;left:0;top:0;z-index:65;width:7px;height:11px;margin:-5px 0 0 -3px;border-radius:2px;pointer-events:none}
+
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+
+/* ---------- Tablet ---------- */
+@media (min-width:680px){
+  .wrap{max-width:640px}
+  .perks{grid-template-columns:1fr 1fr}
+  .bio{max-width:420px;font-size:16px}
+  .card{padding:18px 18px 18px 16px}
+  .mod{min-height:132px;padding:18px 16px 14px}
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width:1000px){
+  .wrap{max-width:1180px;padding-block-start:calc(32px + env(safe-area-inset-top, 0px))}
+  .layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,480px);gap:clamp(48px,6vw,96px);align-items:start;margin-top:12px}
+  .side{display:flex;flex-direction:column;position:sticky;top:calc(36px + env(safe-area-inset-top, 0px))}
+  .hero{text-align:left;padding-top:8px}
+  .logo-wrap{width:220px;height:220px;margin:0 0 26px}
+  .logo{width:140px;height:140px}
+  .shock{width:140px;height:140px;margin:-70px 0 0 -70px}
+  h1{font-size:clamp(56px,6.4vw,92px);letter-spacing:-.035em}
+  .say{justify-content:flex-start;font-size:22px;gap:14px;margin-top:22px}
+  .rot{height:48px}
+  .bio{margin:20px 0 0;max-width:440px;font-size:18px}
+  .socials{justify-content:flex-start;margin-top:30px}
+  .soc{width:58px;height:58px;border-radius:18px}
+  .perks{margin-top:44px;max-width:620px}
+  .links{margin-top:0}
+  .feat{padding:26px 26px 22px}
+  .feat h2{font-size:34px}
+  .band{margin-top:120px}
+  .burst{font-size:14px;padding:7px 13px}
+}
+@media (min-width:1000px) and (max-height:780px){
+  .logo-wrap{width:180px;height:180px;margin-bottom:16px}
+  .logo{width:116px;height:116px}
+  .shock{width:116px;height:116px;margin:-58px 0 0 -58px}
+  h1{font-size:clamp(48px,5.4vw,76px)}
+  .perks{margin-top:28px}
+}
+
+@media (hover:none){
+  .card:hover,.mod:hover,.soc:hover{transform:none}
+}
+@media (max-width:360px){
+  .mods{grid-template-columns:1fr}
+  .mod{min-height:0;flex-direction:row;align-items:center;justify-content:flex-start;gap:14px}
+  .mod .people{width:74px}
+}
+</style>
+</head>
+<body>
+<noscript><style>.loader{display:none}.rise,.ch{opacity:1!important;translate:none!important;filter:none!important}</style></noscript>
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="ld-lime"></div>
+  <div class="ld-panel">
+    <div class="ld-center">
+      <div class="ld-mark">
+        <svg class="ld-ring" viewBox="0 0 200 200"><circle class="trk" cx="100" cy="100" r="98"/><circle class="bar" id="ldBar" cx="100" cy="100" r="98" pathLength="1"/></svg>
+        <svg class="ld-logo" viewBox="90 115 900 870">
+          <path class="ld-d" pathLength="1" d="M977.7,540.03c0,116.94-47.44,222.83-124.08,299.46-76.63,76.7-182.51,124.08-299.52,124.08h-17.93c-22.64-6.22-80.1-25.33-124.93-80.82-.26-.33-.59-.65-.85-1.05-29.06-36.38-44.04-82.13-44.04-128.72v-27.81h183.1c103.46,0,187.36-83.890,187.36-187.36,0-51.76-20.94-98.62-54.9-132.52-33.9-33.9-80.69-54.84-132.45-54.84-40.12,0-76.43-16.29-102.74-42.54-26.24-26.31-42.54-62.63-42.54-102.68v-71.07c0-9.82,7.98-17.73,17.8-17.73h132.12c233.95,0,423.6,189.65,423.6,423.6Z"/>
+          <path class="ld-stem" d="M411.25,882.75c-.26-.33-.59-.65-.85-1.05-29.06-36.38-44.04-82.13-44.04-128.72v-161.77c0-103.4-83.89-187.23-187.29-187.23h-54.12c-12.5,0-22.64,10.14-22.64,22.64v251.36c0,153.07,120.48,278.06,271.77,285.26,4.58.2,9.16.33,13.81.33h148.29c-22.64-6.22-80.1-25.33-124.93-80.82Z"/>
+          <circle class="ld-dot" cx="227.31" cy="252.39" r="123.37"/>
+        </svg>
+      </div>
+      <div class="ld-hello" id="ldHello" aria-hidden="true"></div>
+      <span class="ld-lang" id="ldLang">Inglês</span>
+      <div class="ld-name"><i class=""><b style="--i:0">I</b></i><i class=""><b style="--i:1">D</b></i><i class="sp"></i><i class="lm"><b style="--i:3">I</b></i><i class="lm"><b style="--i:4">D</b></i><i class="lm"><b style="--i:5">I</b></i><i class="lm"><b style="--i:6">O</b></i><i class="lm"><b style="--i:7">M</b></i><i class="lm"><b style="--i:8">A</b></i><i class="lm"><b style="--i:9">S</b></i></div>
+    </div>
+    <div class="ld-meta"><span>A escola online que te<br>conecta ao seu objetivo</span><span class="pct"><span id="ldPct">0</span><small>%</small></span></div>
+  </div>
+</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<div class="bg" aria-hidden="true">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="glow" id="glow"></div>
+  
+  <div class="grain"></div>
+</div>
+
+<main class="wrap">
+
+  <div class="topbar rise" style="--i:0">
+    <span class="chip-status"><i></i>5 idiomas · 100% online</span>
+    <button class="icon-btn" id="share" type="button" aria-label="Compartilhar esta página">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>
+    </button>
+  </div>
+
+  <div class="layout">
+    <div class="side">
+      <header class="hero">
+        <div class="logo-wrap rise" style="--i:1" id="logoWrap">
+          <svg class="ring" id="ring" viewBox="0 0 176 176" aria-hidden="true">
+            <defs><path id="circ" d="M88,88 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0"/></defs>
+            <text><textPath href="#circ" textLength="472" lengthAdjust="spacing">aulas sob medida ✦ online ✦ do seu jeito ✦ </textPath></text>
+          </svg>
+          <button class="logo" id="logo" type="button" aria-label="Logo ID Idiomas, toque para dizer olá">
+            <svg viewBox="0 0 1080 1080" aria-hidden="true"><circle cx="540" cy="540" r="540" fill="#353433"/><g transform="translate(540 540) scale(.7) translate(-540 -546)"><path fill="#fff" d="M977.7,540.03c0,116.94-47.44,222.83-124.08,299.46-76.63,76.7-182.51,124.08-299.52,124.08h-17.93c-22.64-6.22-80.1-25.33-124.93-80.82-.26-.33-.59-.65-.85-1.05-29.06-36.38-44.04-82.13-44.04-128.72v-27.81h183.1c103.46,0,187.36-83.890,187.36-187.36,0-51.76-20.94-98.62-54.9-132.52-33.9-33.9-80.69-54.84-132.45-54.84-40.12,0-76.43-16.29-102.74-42.54-26.24-26.31-42.54-62.63-42.54-102.68v-71.07c0-9.82,7.98-17.73,17.8-17.73h132.12c233.95,0,423.6,189.65,423.6,423.6Z"/><circle fill="#aed300" cx="227.31" cy="252.39" r="123.37"/><path fill="#aed300" d="M411.25,882.75c-.26-.33-.59-.65-.85-1.05-29.06-36.38-44.04-82.13-44.04-128.72v-161.77c0-103.4-83.89-187.23-187.29-187.23h-54.12c-12.5,0-22.64,10.14-22.64,22.64v251.36c0,153.07,120.48,278.06,271.77,285.26,4.58.2,9.16.33,13.81.33h148.29c-22.64-6.22-80.1-25.33-124.93-80.82Z"/></g></svg>
+          </button>
+        </div>
+
+        <h1 id="title"><span class="sr">ID Idiomas</span><span class="fit-line" aria-hidden="true"><span class="w" data-t="ID"></span><span class="w lime" data-t="IDIOMAS"></span></span></h1>
+
+        <p class="say rise" style="--i:3"><span>Diga</span><span class="rot" id="rot"><span class="sr">hello</span></span><span class="lang" id="rotLang"></span></p>
+
+        <p class="bio rise" style="--i:4">A escola online que te conecta ao seu objetivo!</p>
+
+        <nav class="socials rise" style="--i:5" aria-label="Redes sociais">
+          <a class="soc" href="https://api.whatsapp.com/send?phone=5514997714442" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </a>
+          <a class="soc" href="https://tiktok.com/@id_idiomas" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.980-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+          <a class="soc" href="https://instagram.com/id_idiomas" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.6" cy="6.4" r=".6" fill="currentColor"/></svg>
+          </a>
+          <a class="soc" href="https://www.facebook.com/id.diomas/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
+          </a>
+        </nav>
+      </header>
+
+      <section class="perks" aria-label="Diferenciais">
+        <div class="perk rise" style="--i:6">
+          <span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+          <div><b>Horários flexíveis</b><span>Aulas que se encaixam na sua rotina, com opção de remarcar.</span></div>
+        </div>
+        <div class="perk rise" style="--i:7">
+          <span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg></span>
+          <div><b>Emitimos nota fiscal</b><span>Para pessoa física ou jurídica, ótimo para reembolso da empresa.</span></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="col">
+      <section class="links" aria-label="Links principais">
+        <a class="card feat rise" style="--i:4" id="feat" href="https://chat.whatsapp.com/HhF4EMMPyEV6T4CyV6qjLy?mode=gi_t" target="_blank" rel="noopener">
+          <div class="feat-top">
+            <span class="badge"><i></i>GRATUITO</span>
+            <span class="feat-kind">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              Comunidade no WhatsApp
+            </span>
+          </div>
+          <h2>Grupo de conversação</h2>
+          <p>Pratique com a comunidade ID, perca a vergonha de falar e evolua de graça.</p>
+          <div class="chat" id="chat" aria-hidden="true">
+            <div class="bub l">Hi! How was your weekend?</div>
+            <div class="bub r">Amazing! I spoke English at work 🙌</div>
+            <div class="bub l typing"><b></b><b></b><b></b></div>
+          </div>
+          <span class="feat-cta">Entrar no grupo agora
+            <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+          </span>
+        </a>
+
+        <a class="card rise" style="--i:5" href="https://6a57d6102022acde369f4eb2--ididiomas.netlify.app" target="_blank" rel="noopener">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+          <span class="txt"><span class="t">Aulas de idiomas sob medida</span><span class="s">Conheça a ID Idiomas no nosso site</span></span>
+          <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="card rise" style="--i:6" href="https://wa.me/5514997714442?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20e%20quero%20saber%20mais%20sobre%20as%20aulas%20da%20ID%20Idiomas." target="_blank" rel="noopener">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+          <span class="txt"><span class="t">Fale com a gente</span><span class="s">WhatsApp · (14) 99771-4442</span></span>
+          <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </section>
+
+      <div class="label rise" style="--i:7">Escolha seu formato</div>
+      <section class="mods" aria-label="Modalidades de aula">
+        <a class="mod rise" style="--i:8" href="https://wa.me/5514997714442?text=Ol%C3%A1!%20Tenho%20interesse%20nas%20aulas%20VIP%20Individual%20da%20ID%20Idiomas." target="_blank" rel="noopener">
+          <span class="people" aria-hidden="true"><i></i></span>
+          <span><b>VIP Individual</b><small>Só você <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></small></span>
+        </a>
+        <a class="mod rise" style="--i:9" href="https://wa.me/5514997714442?text=Ol%C3%A1!%20Tenho%20interesse%20nas%20aulas%20em%20Dupla%20da%20ID%20Idiomas." target="_blank" rel="noopener">
+          <span class="people" aria-hidden="true"><i></i><i></i></span>
+          <span><b>Duplas</b><small>A dois <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></small></span>
+        </a>
+        <a class="mod rise" style="--i:10" href="https://wa.me/5514997714442?text=Ol%C3%A1!%20Tenho%20interesse%20nas%20aulas%20em%20Mini%20Grupo%20da%20ID%20Idiomas." target="_blank" rel="noopener">
+          <span class="people" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span><b>Mini Grupos</b><small>Em grupo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></small></span>
+        </a>
+      </section>
+    </div>
+  </div>
+</main>
+
+<section class="stmt" id="stmt" aria-label="Sobre a ID Idiomas">
+  <span class="kick">Do seu jeito</span>
+  <p class="stmt-text" id="stmtText">Aprenda idiomas no seu ritmo, com foco no seu objetivo. Você escolhe a modalidade e a gente monta o caminho.</p>
+</section>
+
+<section class="focus" id="focus" aria-label="Nosso foco">
+  <div class="focus-pin">
+    <div class="focus-head">
+      <div>
+        <span class="kick">Nosso foco</span>
+        <h2>Ensino direcionado para <span>o que você precisa</span></h2>
+        <p>Cada aluno tem um motivo diferente para aprender um idioma. O nosso conteúdo se adapta a ele.</p>
+      </div>
+      <div class="fmeta"><span id="fcount">01 / 04</span><span class="fprog"><i id="fprog"></i></span></div>
+    </div>
+    <div class="focus-track" id="ftrack">
+      <a class="fcard" href="https://wa.me/5514997714442?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Desenvolvimento%20geral%20na%20ID%20Idiomas." target="_blank" rel="noopener">
+        <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg></span>
+        <span><h3>Desenvolvimento geral</h3><p>Evolução completa nas quatro habilidades: fala, escrita, leitura e compreensão auditiva.</p><span class="more"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></i>Quero esse foco</span></span>
+      </a>
+      <a class="fcard" href="https://wa.me/5514997714442?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Prepara%C3%A7%C3%A3o%20para%20profici%C3%AAncia%20na%20ID%20Idiomas." target="_blank" rel="noopener">
+        <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg></span>
+        <span><h3>Preparação para proficiência</h3><p>Treinamento direcionado para exames e certificados internacionais reconhecidos.</p><span class="more"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></i>Quero esse foco</span></span>
+      </a>
+      <a class="fcard" href="https://wa.me/5514997714442?text=Ol%C3%A1!%20Tenho%20interesse%20no%20curso%20r%C3%A1pido%20para%20viagens%20da%20ID%20Idiomas." target="_blank" rel="noopener">
+        <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></span>
+        <span><h3>Cursos rápidos para viagens</h3><p>Módulos intensivos com vocabulário e situações práticas para viajar com confiança.</p><span class="more"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></i>Quero esse foco</span></span>
+      </a>
+      <a class="fcard" href="https://wa.me/5514997714442?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Ingl%C3%AAs%20agro%20%26%20tech%20da%20ID%20Idiomas." target="_blank" rel="noopener">
+        <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg></span>
+        <span><h3>Inglês agro &amp; tech</h3><p>Vocabulário técnico e especializado para os setores do agronegócio e da tecnologia.</p><span class="more"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></i>Quero esse foco</span></span>
+      </a>
+    </div>
+    <div class="swipe" aria-hidden="true">Arraste para o lado <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
+  </div>
+</section>
+
+<div class="band">
+<div class="marquee rise" style="--i:11" aria-label="Inglês, espanhol, italiano, francês, alemão, proficiência, viagens, agro e tech">
+  <div class="track" id="track" aria-hidden="true"></div>
+</div>
+
+<section class="stage" id="stage" aria-label="Animação interativa: partículas formam saudações em vários idiomas">
+  <div class="cap"><span class="hint"><i></i><span id="hintTxt">Passe o mouse</span></span><span><b id="stageWord">Hello</b> · <span id="stageLang">Inglês</span></span></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+</section>
+
+
+</div>
+
+<footer class="end" id="end">
+  <div class="end-in" id="endIn">
+    <span class="kick">Pronto para começar?</span>
+    <h2 class="end-title" id="endTitle"><span class="ln"><span class="fit-line">Vamos</span></span><span class="ln"><span class="fit-line">conversar?</span></span></h2>
+    <div class="end-row">
+      <p>Mande uma mensagem e a gente te ajuda a escolher a modalidade e o foco ideal para o seu momento.</p>
+      <a class="end-btn" href="https://wa.me/5514997714442?text=Ol%C3%A1!%20Quero%20come%C3%A7ar%20minhas%20aulas%20na%20ID%20Idiomas." target="_blank" rel="noopener">Chamar no WhatsApp<span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+    <div class="end-meta"><span>© <span id="y">2026</span> ID Idiomas · Aulas online</span><span>Desenvolvido por <a href="https://www.instagram.com/studiopontoa/" target="_blank" rel="noopener">Studio Ponto A</a></span></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+  <span>Link copiado!</span>
+</div>
+
+<script>
+(() => {
+  /* Sempre começar no topo ao abrir ou atualizar a página */
+  const toTop = () => { try { history.scrollRestoration = 'manual'; } catch (e) {} window.scrollTo(0, 0); };
+  toTop();
+  addEventListener('pageshow', toTop);
+  addEventListener('beforeunload', toTop);
+  addEventListener('load', () => { if (!location.hash) toTop(); });
+
+  const reduce = false; // animações sempre ligadas (pedido do cliente), mesmo com 'reduzir movimento' ativo no sistema
+  const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  $('#y').textContent = new Date().getFullYear();
+
+  /* Keep giant titles inside their column, whatever the font metrics */
+  const fitAll = () => {
+    ['#title', '#endTitle'].forEach(sel => {
+      const el = $(sel); if (!el) return;
+      el.style.fontSize = '';
+      const fs = parseFloat(getComputedStyle(el).fontSize);
+      const avail = el.clientWidth;
+      let widest = 0;
+      $$('.fit-line', el).forEach(l => { widest = Math.max(widest, l.getBoundingClientRect().width); });
+      if (widest > avail && widest > 0) el.style.fontSize = Math.floor(fs * (avail / widest) * 0.98) + 'px';
+    });
+  };
+  addEventListener('resize', fitAll);
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(fitAll);
+
+  /* Title letters */
+  let ci = 0;
+  $$('#title .w').forEach(w => {
+    [...w.dataset.t].forEach(c => { const s = document.createElement('span'); s.className = 'ch'; s.textContent = c; s.style.setProperty('--i', ci++); w.appendChild(s); });
+  });
+
+  fitAll();
+
+  /* Marquee content */
+  const star = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg>';
+  const items = ['Inglês', 'Espanhol', 'Italiano', 'Francês', 'Alemão', 'Proficiência', 'Viagens', 'Agro &amp; Tech'];
+  const chunk = '<span>' + items.map(t => t + ' ' + star).join(' ') + '</span>';
+  const track = $('#track');
+  track.innerHTML = chunk + chunk + chunk + chunk;
+
+  /* Entrance: items below the fold reveal on scroll instead */
+  $$('.rise').forEach(el => { if (el.getBoundingClientRect().top > innerHeight * 0.92) el.classList.add('later'); });
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+    $$('.rise.later').forEach(el => io.observe(el));
+  } else $$('.rise.later').forEach(el => el.classList.add('in'));
+
+  /* Loader */
+  const loader = $('#loader');
+  let introDone = false; const afterQ = [];
+  const afterIntro = fn => introDone ? fn() : afterQ.push(fn);
+  const finishIntro = () => {
+    if (introDone) return; introDone = true;
+    document.documentElement.classList.remove('lock');
+    document.body.classList.add('ready');
+    afterQ.splice(0).forEach(f => f());
+  };
+  if (reduce || !loader) { loader && loader.remove(); requestAnimationFrame(finishIntro); }
+  else {
+    document.documentElement.classList.add('lock');
+    const bar = $('#ldBar'), pctEl = $('#ldPct');
+    const t0 = performance.now(), MIN = 2900, MAX = 5200;
+    const LH = [['Hello', 'Inglês'], ['Hola', 'Espanhol'], ['Ciao', 'Italiano'], ['Bonjour', 'Francês'], ['Hallo', 'Alemão']];
+    const ldHello = $('#ldHello'), ldLang = $('#ldLang');
+    let hk = 0, hCur = null;
+    const showHello = () => {
+      const [w, l] = LH[hk % LH.length]; hk++;
+      const n = document.createElement('span'); n.textContent = w; ldHello.appendChild(n);
+      void n.offsetWidth; n.classList.add('on');
+      ldLang.style.opacity = 0; setTimeout(() => { ldLang.textContent = l; ldLang.style.opacity = 1; }, 180);
+      if (hCur) { const o = hCur; o.classList.add('off'); setTimeout(() => o.remove(), 600); }
+      hCur = n;
+    };
+    showHello();
+    const helloTimer = setInterval(showHello, 520);
+    let assets = false, leaving = false, shown = 0;
+    Promise.all([
+      document.fonts ? document.fonts.ready : Promise.resolve(),
+      new Promise(r => document.readyState === 'complete' ? r() : addEventListener('load', r, { once: true }))
+    ]).then(() => { assets = true; });
+    const leave = () => {
+      if (leaving) return; leaving = true;
+      fitAll();
+      clearInterval(helloTimer);
+      loader.classList.add('done');
+      setTimeout(() => { loader.classList.add('out'); finishIntro(); }, 520);
+      setTimeout(() => loader.remove(), 1700);
+    };
+    const tickL = now => {
+      const t = now - t0;
+      const target = Math.min(1, t / MIN) * (assets ? 100 : 88);
+      shown += (target - shown) * .12;
+      if (assets && t >= MIN && shown > 99.2) shown = 100;
+      const v = Math.round(shown);
+      pctEl.textContent = v;
+      bar.style.strokeDashoffset = 1 - shown / 100;
+      if (v >= 100 || t > MAX) { pctEl.textContent = 100; bar.style.strokeDashoffset = 0; leave(); return; }
+      requestAnimationFrame(tickL);
+    };
+    requestAnimationFrame(tickL);
+    loader.addEventListener('click', () => { if (performance.now() - t0 > 900) leave(); });
+  }
+
+  /* Rotating greeting */
+  const greets = ['hello', 'hola', 'ciao', 'bonjour', 'hallo'];
+  const langs = ['inglês', 'espanhol', 'italiano', 'francês', 'alemão'];
+  const rotLang = $('#rotLang');
+  /* all labels live in the same grid cell, so the box is always as wide as the longest one */
+  const langEls = langs.map((l, i) => { const n = document.createElement('span'); n.textContent = 'em ' + l; if (!i) n.classList.add('in'); rotLang.appendChild(n); return n; });
+  const setLang = i => {
+    const old = rotLang.querySelector('.in'), n = langEls[i];
+    n.classList.remove('out'); n.classList.add('in');
+    if (old && old !== n) { old.classList.remove('in'); old.classList.add('out'); setTimeout(() => old.classList.remove('out'), 700); }
+  };
+  const rot = $('#rot');
+  const spans = greets.map(g => { const s = document.createElement('span'); s.textContent = g; s.setAttribute('aria-hidden', 'true'); rot.appendChild(s); return s; });
+  const fit = () => {
+    const m = document.createElement('span');
+    const cs = getComputedStyle(rot);
+    m.style.cssText = `position:absolute;visibility:hidden;white-space:nowrap;font-weight:700;font-size:${cs.fontSize};font-family:${cs.fontFamily}`;
+    document.body.appendChild(m);
+    let w = 0; greets.forEach(g => { m.textContent = g; w = Math.max(w, m.getBoundingClientRect().width); });
+    m.remove();
+    rot.style.width = Math.ceil(w + parseFloat(cs.height) * 0.9) + 'px';
+  };
+  let gi = 0; spans[0].classList.add('in'); fit();
+  addEventListener('resize', fit);
+  document.fonts && document.fonts.ready.then(fit);
+  if (!reduce) setInterval(() => {
+    const cur = spans[gi]; gi = (gi + 1) % spans.length; const nxt = spans[gi];
+    cur.classList.remove('in'); cur.classList.add('out');
+    nxt.classList.remove('out'); nxt.classList.add('in');
+    setLang(gi);
+    setTimeout(() => cur.classList.remove('out'), 650);
+  }, 2000);
+
+  /* Particle stage: dots form greetings and run from your finger/mouse */
+  const stage = $('#stage'), box = $('#fx');
+  const fxCtx = box.getContext('2d');
+  const smallFx = innerWidth < 700;
+  const N = smallFx ? 1000 : 2300;
+  const dpr = Math.min(devicePixelRatio || 1, 1.75);
+  const FXW = ['Hello', 'Hola', 'Ciao', 'Bonjour', 'Hallo'];
+  const FXL = ['Inglês', 'Espanhol', 'Italiano', 'Francês', 'Alemão'];
+  let FW = 0, FH = 0, fxWord = 0, parts = [], visible = true, running = false;
+  const ptr = { x: -9999, y: -9999 };
+  $('#hintTxt').textContent = fine ? 'Passe o mouse' : 'Toque e arraste';
+  const resizeFx = () => { const r = stage.getBoundingClientRect(); FW = r.width; FH = r.height; box.width = FW * dpr; box.height = FH * dpr; fxCtx.setTransform(dpr, 0, 0, dpr, 0, 0); };
+  const sample = word => {
+    const c = document.createElement('canvas'), x = c.getContext('2d', { willReadFrequently: true });
+    const w = Math.ceil(FW), h = Math.ceil(FH); c.width = w; c.height = h;
+    const font = z => `800 ${z}px Unbounded, "Arial Black", sans-serif`;
+    x.font = font(100);
+    let fs = 100 * (w * (smallFx ? .84 : .74)) / x.measureText(word).width;
+    fs = Math.min(fs, h * .62);
+    x.font = font(fs); x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillStyle = '#fff';
+    x.fillText(word, w / 2, h * .56);
+    const d = x.getImageData(0, 0, w, h).data;
+    let area = 0; for (let i = 3; i < d.length; i += 16) if (d[i] > 128) area++;
+    const gap = Math.max(2.5, Math.sqrt(area * 4 / (N * .92)));
+    const pts = [];
+    for (let y = 0; y < h; y += gap) for (let xx = 0; xx < w; xx += gap) { if (d[((y | 0) * w + (xx | 0)) * 4 + 3] > 128) pts.push({ x: xx, y }); }
+    for (let i = pts.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; const t = pts[i]; pts[i] = pts[j]; pts[j] = t; }
+    return pts;
+  };
+  const assign = () => {
+    const pts = sample(FXW[fxWord]); parts.forEach((p, i) => { p.t = i < pts.length ? pts[i] : null; });
+    $('#stageWord').textContent = FXW[fxWord]; $('#stageLang').textContent = FXL[fxWord];
+  };
+  const fxKick = (s = 12) => parts.forEach(p => { p.vx += (Math.random() - .5) * s; p.vy += (Math.random() - .5) * s; });
+  if (!reduce) {
+    resizeFx();
+    for (let i = 0; i < N; i++) parts.push({ x: Math.random() * FW, y: Math.random() * FH, vx: 0, vy: 0, t: null, s: Math.random() * 1.4 + 1, ph: Math.random() * 6.28 });
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(assign);
+    setInterval(() => { if (document.hidden || !visible) return; fxWord = (fxWord + 1) % FXW.length; fxKick(18); assign(); }, 3600);
+    let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { resizeFx(); assign(); }, 200); });
+    const setP = (cx, cy) => { const r = box.getBoundingClientRect(); ptr.x = cx - r.left; ptr.y = cy - r.top; };
+    const clearP = () => { ptr.x = -9999; ptr.y = -9999; };
+    stage.addEventListener('pointermove', e => setP(e.clientX, e.clientY), { passive: true });
+    stage.addEventListener('pointerleave', clearP);
+    stage.addEventListener('touchstart', e => { const t = e.touches[0]; t && setP(t.clientX, t.clientY); }, { passive: true });
+    stage.addEventListener('touchmove', e => { const t = e.touches[0]; t && setP(t.clientX, t.clientY); }, { passive: true });
+    stage.addEventListener('touchend', () => setTimeout(clearP, 250), { passive: true });
+    stage.addEventListener('click', e => { setP(e.clientX, e.clientY); fxKick(30); });
+    const R = smallFx ? 70 : 120;
+    let ft = 0;
+    const fxLoop = () => {
+      if (!visible) { running = false; return; }
+      ft += .016;
+      fxCtx.clearRect(0, 0, FW, FH);
+      fxCtx.fillStyle = '#c6ff00';
+      const free = [];
+      for (const p of parts) {
+        let ax, ay;
+        if (p.t) { ax = (p.t.x - p.x) * .013; ay = (p.t.y - p.y) * .013; }
+        else { ax = Math.cos(ft * .6 + p.ph) * .03; ay = Math.sin(ft * .5 + p.ph) * .03; }
+        const dx = p.x - ptr.x, dy = p.y - ptr.y, d2 = dx * dx + dy * dy;
+        if (d2 < R * R) { const dd = Math.sqrt(d2) || 1, f = (1 - dd / R) * 3.4; ax += dx / dd * f; ay += dy / dd * f; }
+        p.vx = (p.vx + ax) * .86; p.vy = (p.vy + ay) * .86;
+        p.x += p.vx; p.y += p.vy;
+        if (!p.t) {
+          if (p.x < -10) p.x = FW + 10; else if (p.x > FW + 10) p.x = -10;
+          if (p.y < -10) p.y = FH + 10; else if (p.y > FH + 10) p.y = -10;
+          free.push(p); continue;
+        }
+        fxCtx.fillRect(p.x, p.y, p.s, p.s);
+      }
+      fxCtx.fillStyle = 'rgba(255,255,255,.3)';
+      for (const p of free) fxCtx.fillRect(p.x, p.y, p.s, p.s);
+      requestAnimationFrame(fxLoop);
+    };
+    const startFx = () => { if (!running) { running = true; requestAnimationFrame(fxLoop); } };
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(es => { visible = es[0].isIntersecting; if (visible) { fxKick(22); startFx(); } }, { rootMargin: '120px' }).observe(stage);
+    }
+    startFx();
+  }
+
+  /* Logo burst */
+  const logo = $('#logo'), wrap = $('#logoWrap');
+  let spinBoost = 0;
+  const burst = () => {
+    if (reduce) return;
+    logo.classList.remove('kick'); void logo.offsetWidth; logo.classList.add('kick');
+    const sh = document.createElement('span'); sh.className = 'shock'; wrap.appendChild(sh); setTimeout(() => sh.remove(), 900);
+    const pool = ['Hello!', '¡Hola!', 'Ciao!', 'Bonjour!', 'Hallo!'];
+    const n = 7, base = Math.random() * Math.PI * 2, dist = wrap.offsetWidth * 0.78, off = Math.floor(Math.random() * pool.length);
+    for (let i = 0; i < n; i++) {
+      const a = base + (i / n) * Math.PI * 2 + (Math.random() - .5) * .4;
+      const b = document.createElement('span');
+      b.className = 'burst' + (i % 3 === 1 ? ' alt' : '');
+      b.textContent = pool[(i + off) % pool.length];
+      b.style.setProperty('--tx', Math.cos(a) * dist * (0.8 + Math.random() * .4) + 'px');
+      b.style.setProperty('--ty', Math.sin(a) * dist * (0.8 + Math.random() * .4) + 'px');
+      b.style.setProperty('--rot', (Math.random() - .5) * 40 + 'deg');
+      b.style.animationDelay = (i * 25) + 'ms';
+      wrap.appendChild(b); setTimeout(() => b.remove(), 1500);
+    }
+    spinBoost = 900;
+    fxKick(26);
+  };
+  logo.addEventListener('click', burst);
+  if (!reduce) afterIntro(() => setTimeout(burst, 900));
+
+  /* ---------- Smooth scroll (mouse wheel) ---------- */
+  const smooth = { y: scrollY, target: scrollY, active: false };
+  const maxScroll = () => document.documentElement.scrollHeight - innerHeight;
+  if (fine && !reduce) {
+    addEventListener('wheel', e => {
+      if (e.ctrlKey || document.documentElement.classList.contains('lock') || maxScroll() < 40) return;
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+      e.preventDefault();
+      const k = e.deltaMode === 1 ? 36 : e.deltaMode === 2 ? innerHeight : 1;
+      if (!smooth.active) smooth.y = smooth.target = scrollY;
+      smooth.target = Math.max(0, Math.min(maxScroll(), smooth.target + e.deltaY * k));
+      smooth.active = true;
+    }, { passive: false });
+    addEventListener('scroll', () => { if (!smooth.active) smooth.y = smooth.target = scrollY; }, { passive: true });
+    addEventListener('keydown', () => { smooth.active = false; });
+    addEventListener('pointerdown', () => { smooth.active = false; });
+  }
+  const stepSmooth = dt => {
+    if (!smooth.active) return;
+    smooth.y += (smooth.target - smooth.y) * (1 - Math.exp(-dt * 8.5));
+    if (Math.abs(smooth.target - smooth.y) < .5) { smooth.y = smooth.target; smooth.active = false; }
+    scrollTo(0, smooth.y);
+  };
+
+  /* ---------- Manifesto: words light up ---------- */
+  const stmt = $('#stmt'), stmtText = $('#stmtText');
+  const HL = ['ritmo,', 'objetivo.', 'monta', 'caminho.'];
+  stmtText.innerHTML = stmtText.textContent.trim().split(/\s+/).map(w => `<span class="sw${HL.includes(w) ? ' hl' : ''}">${w}</span>`).join(' ');
+  const sws = $$('.sw', stmtText);
+  if (!reduce) stmt.classList.add('js-scrub');
+  const stepStmt = () => {
+    const r = stmtText.getBoundingClientRect();
+    const p = Math.max(0, Math.min(1, (innerHeight * .88 - r.top) / (r.height + innerHeight * .38)));
+    const lit = p * (sws.length + 2);
+    sws.forEach((w, i) => { const o = Math.max(.13, Math.min(1, lit - i)); if (w._o !== o) { w._o = o; w.style.opacity = o; } });
+  };
+
+  /* ---------- Nosso foco: pinned horizontal scroll on desktop ---------- */
+  const focus = $('#focus'), ftrack = $('#ftrack'), fprog = $('#fprog'), fcount = $('#fcount');
+  const fcards = $$('.fcard', ftrack);
+  let fOver = 0, fx = 0, fxv = 0;
+  const pinMQ = matchMedia('(min-width:1000px)');
+  const setupFocus = () => {
+    const pin = pinMQ.matches && !reduce && innerHeight < 1500;
+    focus.classList.toggle('pinned', pin);
+    if (pin) {
+      fOver = Math.max(0, ftrack.offsetWidth - document.documentElement.clientWidth);
+      focus.style.height = (fOver + innerHeight) + 'px';
+    } else { fOver = 0; focus.style.height = ''; ftrack.style.transform = ''; }
+  };
+  setupFocus();
+  addEventListener('resize', setupFocus);
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(setupFocus);
+  ftrack.addEventListener('scroll', () => {
+    const p = ftrack.scrollWidth > ftrack.clientWidth ? ftrack.scrollLeft / (ftrack.scrollWidth - ftrack.clientWidth) : 0;
+    fprog.style.transform = `scaleX(${p})`;
+    fcount.textContent = '0' + (Math.round(p * (fcards.length - 1)) + 1) + ' / 0' + fcards.length;
+  }, { passive: true });
+  const stepFocus = () => {
+    if (!fOver) return;
+    const r = focus.getBoundingClientRect();
+    const p = Math.max(0, Math.min(1, -r.top / fOver));
+    const nx = -p * fOver;
+    fxv = nx - fx; fx = nx;
+    const sk = Math.max(-6, Math.min(6, fxv * .06));
+    ftrack.style.transform = `translate3d(${fx}px,0,0) skewX(${sk}deg)`;
+    fprog.style.transform = `scaleX(${p})`;
+    fcount.textContent = '0' + (Math.round(p * (fcards.length - 1)) + 1) + ' / 0' + fcards.length;
+  };
+
+  /* ---------- Footer curtain ---------- */
+  const end = $('#end'), endIn = $('#endIn');
+  const stepEnd = () => {
+    const r = end.getBoundingClientRect();
+    const p = Math.max(0, Math.min(1, (innerHeight - r.top) / Math.min(r.height, innerHeight)));
+    endIn.style.transform = `translate3d(0,${(1 - p) * -18}%,0)`;
+    if (p > .28) end.classList.add('in');
+  };
+  if (reduce) end.classList.add('in');
+  else if (!('IntersectionObserver' in window)) end.classList.add('in');
+
+  /* ---------- Hero parallax on phones ---------- */
+  const heroLogo = $('#logoWrap');
+  const stepHero = () => {};
+
+  /* Ring + marquee driven by time and scroll speed */
+  const ring = $('#ring'), prog = $('#progress');
+  let angle = 0, mx = 0, dir = 1, lastY = scrollY, vel = 0, last = performance.now();
+  const tick = now => {
+    const dt = Math.min(64, now - last) / 1000; last = now;
+    stepSmooth(dt);
+    const y = scrollY, dy = y - lastY; lastY = y;
+    stepStmt(); stepFocus(); stepEnd(); stepHero(y);
+    if (dy !== 0) dir = dy > 0 ? 1 : -1;
+    vel += (Math.min(4000, Math.abs(dy) / Math.max(dt, .001)) - vel) * .12;
+    spinBoost *= Math.pow(0.04, dt);
+    angle += (16 + vel * .12 + spinBoost) * dt * dir;
+    ring.style.transform = `rotate(${angle}deg)`;
+    const half = track.scrollWidth / 2;
+    mx -= (60 + vel * .35) * dt * dir;
+    if (half) { if (mx <= -half) mx += half; if (mx > 0) mx -= half; }
+    track.style.transform = `translate3d(${mx}px,0,0)`;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    prog.style.transform = `scaleX(${max > 0 ? Math.min(1, y / max) : 0})`;
+    requestAnimationFrame(tick);
+  };
+  if (!reduce) requestAnimationFrame(tick);
+
+  /* Pointer glow + parallax (desktop) */
+  if (fine && !reduce) {
+    const glow = $('#glow');
+    let tx = innerWidth / 2, ty = innerHeight / 2, gx = tx, gy = ty;
+    addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; glow.classList.add('on'); }, { passive: true });
+    document.addEventListener('pointerleave', () => glow.classList.remove('on'));
+    (function loop() {
+      gx += (tx - gx) * .12; gy += (ty - gy) * .12;
+      glow.style.transform = `translate3d(${gx}px,${gy}px,0)`;
+      requestAnimationFrame(loop);
+    })();
+
+    /* Magnetic social icons */
+    $$('.soc').forEach(s => {
+      s.addEventListener('pointermove', e => {
+        const r = s.getBoundingClientRect();
+        s.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .3}px, ${(e.clientY - r.top - r.height / 2) * .3 - 4}px) rotate(-4deg)`;
+      });
+      s.addEventListener('pointerleave', () => { s.style.transform = ''; });
+    });
+
+    const eb = $('.end-btn');
+    eb.addEventListener('pointermove', e => { const r = eb.getBoundingClientRect(); eb.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .25}px, ${(e.clientY - r.top - r.height / 2) * .35}px)`; });
+    eb.addEventListener('pointerleave', () => { eb.style.transform = ''; });
+
+    /* 3D tilt on the featured card */
+    const feat = $('#feat');
+    feat.addEventListener('pointermove', e => {
+      const r = feat.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+      feat.classList.add('tilting');
+      feat.style.setProperty('--ry', (px * 9) + 'deg');
+      feat.style.setProperty('--rx', (py * -9) + 'deg');
+    });
+    feat.addEventListener('pointerleave', () => { feat.classList.remove('tilting'); feat.style.setProperty('--rx', '0deg'); feat.style.setProperty('--ry', '0deg'); });
+  }
+
+  /* Spotlight on cards */
+  $$('.card').forEach(c => c.addEventListener('pointermove', e => {
+    const r = c.getBoundingClientRect();
+    c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  }));
+
+  /* Ripple on tap */
+  if (!reduce) $$('.card, .mod, .soc').forEach(el => el.addEventListener('pointerdown', e => {
+    const r = el.getBoundingClientRect();
+    const s = document.createElement('span'); s.className = 'ripple';
+    s.style.left = (e.clientX - r.left) + 'px'; s.style.top = (e.clientY - r.top) + 'px';
+    el.appendChild(s); setTimeout(() => s.remove(), 750);
+  }));
+
+  /* Chat loop */
+  const bubs = $$('#chat .bub');
+  const showChat = () => { bubs.forEach(b => b.classList.remove('show')); bubs.forEach((b, i) => setTimeout(() => b.classList.add('show'), 600 + i * 1100)); };
+  if (reduce) bubs.forEach(b => b.classList.add('show')); else { showChat(); setInterval(showChat, 6200); }
+
+  /* Text that "translates" itself from other alphabets */
+  const GLY = 'абвгджзиклмнпрстфхцчшщэюяαβγδθλμπσφψωあかさたなはまやらアカサタナハマヤラÄÖÜßÉÇÑØ';
+  const scramble = (el, dur = 900) => {
+    if (reduce || !el || el._sc) return;
+    const fin = el.dataset.fin || (el.dataset.fin = el.textContent);
+    el._sc = 1;
+    const chars = [...fin];
+    const rs = chars.map((c, i) => (i / chars.length) * .65 + Math.random() * .35);
+    const t0 = performance.now();
+    const step = now => {
+      const t = Math.min(1, (now - t0) / dur);
+      el.textContent = chars.map((c, i) => (c === ' ' || t >= rs[i]) ? c : GLY[Math.random() * GLY.length | 0]).join('');
+      if (t < 1) requestAnimationFrame(step); else { el.textContent = fin; el._sc = 0; }
+    };
+    requestAnimationFrame(step);
+  };
+
+  /* Share */
+  const toast = $('#toast'); let tt;
+  const pop = msg => { toast.querySelector('span').textContent = msg; toast.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove('on'), 2200); };
+  $('#share').addEventListener('click', async () => {
+    const data = { title: 'ID Idiomas', text: 'A escola online que te conecta ao seu objetivo!', url: location.href };
+    if (navigator.share) { try { await navigator.share(data); return; } catch (e) { if (e && e.name === 'AbortError') return; } }
+    try { await navigator.clipboard.writeText(location.href); pop('Link copiado!'); }
+    catch (e) { pop('Copie o link na barra do navegador'); }
+  });
+})();
+</script>
+</body>
+</html>
